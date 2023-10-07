@@ -88,6 +88,7 @@ public class PracticaListas {
 		//eliminar duplicados
 		l1.addAll(Arrays.asList(1, 2, 2, 1, 4, 2, 4, 3));
 		List<Integer> listEliminarduplicados = lista.eliminarDuplicadoConSet(l1);
+		System.out.println(listEliminarduplicados);
 		
 		
 //		List<Integer> l2 = new ArrayList<Integer>();
@@ -96,7 +97,6 @@ public class PracticaListas {
 //		List<Integer> l3 = lista.invertirListaConIterator(l1);
 //		List<Integer> l3 = lista.dosListaEnOtraOrdenada(l1, l2);
 
-		System.out.println(listEliminarduplicados);
 //		System.out.println(l3);
 //		System.out.println(l3);
 	}
