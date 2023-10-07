@@ -3,6 +3,7 @@ package listas;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,36 +28,55 @@ public class PracticaListas {
 	public List<Integer> eliminarDuplicados(List<Integer> l){
 		List<Integer> aux = new LinkedList<Integer>();
 		
-//		for (Integer integer : l) {
-//			if(!aux.contains(integer)) {
-//				aux.add(integer);
-//			}
-//		}
-//		
-//		return aux;
-//		Set<Integer> conjunto = new TreeSet<Integer>();
-		Set<Integer> conjunto = new LinkedHashSet<Integer>();
+		for (Integer integer : l) {
+			if(!aux.contains(integer)) {
+				aux.add(integer);
+			}
+		}
+		
+		return aux;		
+	}
+	
+	public List<Integer> eliminarDuplicadoConSet(List<Integer> l){
+		List<Integer> aux = new LinkedList<Integer>();
+		
+		Set<Integer> conjunto = new TreeSet<Integer>();
+//		Set<Integer> conjunto = new HashSet<Integer>();
+//		Set<Integer> conjunto = new LinkedHashSet<Integer>();
+		
 		conjunto.addAll(l);
 		aux.addAll(conjunto);
-		return aux;
 		
+		return aux;
 	}
 	
 	public List<Integer> invertirLista(List<Integer> l){
 		List<Integer> aux = new LinkedList<Integer>();
 		
-//		for (int i = l.size() - 1; i >= 0; i--) {
-//            aux.add(l.get(i));
-//        }
-//		return aux;
-		ListIterator<Integer> element = l.listIterator(l.size());
+		for (int i = l.size() - 1; i >= 0; i--) {
+            aux.add(l.get(i));
+        }
+		return aux;
+	}
+	
+	public List<Integer> invertirListaConIterator(List<Integer> l){
+//		List<Integer> aux = new ArrayList<Integer>();//ArrayList o LinkedList
+//		ListIterator<Integer> element = l.listIterator();//recore la lista hacia adelante		
+//		while(element.hasNext()) {
+//			aux.add(element.next());
+//		}
 		
+		List<Integer> aux = new LinkedList<Integer>();
+		
+		ListIterator<Integer> element = l.listIterator(l.size());//recorre la lista hacia atras
 		while(element.hasPrevious()) {
 			aux.add(element.previous());
 		}
-		return aux;
 		
+		return aux;	
 	}
+	
+	
 	
 	public static void main(String[] args) {
 		
@@ -68,7 +88,8 @@ public class PracticaListas {
 		
 //		List<Integer> l2 = new ArrayList<Integer>();
 //		l2.addAll(Arrays.asList(2,4,7));
-		List<Integer> l3 = lista.invertirLista(l1);
+//		List<Integer> l3 = lista.invertirLista(l1);
+		List<Integer> l3 = lista.invertirListaConIterator(l1);
 //		List<Integer> l3 = lista.dosListaEnOtraOrdenada(l1, l2);
 
 		System.out.println(l3);
